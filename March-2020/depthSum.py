@@ -2,7 +2,6 @@
 # or a list -- whose elements may also be integers or other lists.
 
 def depthSum(nestedList):
-    sumDepth = 0
     def dfs(array, depth):
         nonlocal sumDepth
         for item in array:
@@ -10,6 +9,8 @@ def depthSum(nestedList):
                 sumDepth += item * depth
             else:
                 dfs(item, depth + 1)
+
+    sumDepth = 0
     dfs(nestedList, 1)
     return sumDepth
 
